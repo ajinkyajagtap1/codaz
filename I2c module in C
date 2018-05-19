@@ -1,0 +1,109 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+#include <sys/ioctl.h>
+
+#include <linux/i2c-dev.h>
+
+int main(int argc, char **argv) {
+
+	int fd;
+
+	char i2c_device[]="/dev/i2c-1";
+
+	unsigned char buffer[17];
+
+	/* Open i2c device */
+
+
+fd = open("/dev/i2c-1",O_RDWR);//file open i2c-1,because using bus 1 for read and write
+
+
+	/* Set slave address */
+
+result=ioctl(fd, I2C_SLAVE, 0x70);
+
+	/* Turn on oscillator */
+
+buffer[0]=(0x2<<4)|(0x1);//high  4 bits 0x2 and low 4 bit 0x4
+result=write(fd,buffer, 1);
+
+
+	/* Turn on Display, No Blink */
+
+buffer[0]=0x81;
+result=write(fd,buffer,1);
+
+	/* Set Brightness */
+
+
+buffer[0]=0xef;
+result=write(fd,buffer,1);
+
+	/* Write 1s to all Display Columns */
+
+int i;
+buffer[0]==0x0;
+for(i=0;i<16;i++) buffer[i+1]=0xff;
+write(fd,buffer,17);
+
+//ECE 471//
+
+
+while(1);
+{
+sleep(1);
+//ECE
+buffer[0]=0x00;	//offset pointer
+buffer[1]=0x79;//column 1,segments ADEFG(E)
+buffer[2]=0x00;//next 8 bits of column 1,not connected
+buffer[3]=0x39;//column 2,segments ADEF(C)
+buffer[4]=0x00;//next 8 bits of column 2,not connected
+buffer[5]=0x00;//column 3 ,8 bits not connected
+buffer[6]=0x00;//next 8 bits of clumn 3  not connected
+buffer[7]=0x79;//column 4 ,segments ADEFG(E)
+buffer[8]=0x00;//not connected
+buffer[9]=0x00;//not connected
+buffer[10]=0x00;//not connected
+buffer[11]=0x00;//not connected
+buffer[12]=0x00;//not connected
+buffer[13]=0x00;//not connected
+buffer[14]=0x00;//not connected
+buffer[15]=0x00;//not connected
+buffer[16]=0x00;//not connected
+
+write (fd,buffer,17);
+
+sleep(1);			//sleep for second
+
+//471
+
+buffer[0]=0x00;//offset pointer
+buffer[1]=0x64;//segment FGC(4)
+buffer[2]=0x00;
+buffer[3]=0x07;//segment ABC(7)
+buffer[4]=0x00;
+buffer[5]=0x06;//segment BC(1)	
+buffer[6]=0x00;
+buffer[7]=0x00;
+buffer[8]=0x00;
+buffer[9]=0x00;
+buffer[10]=0x00;
+buffer[11]=0x00;//not connected
+buffer[12]=0x00;//not connected
+buffer[13]=0x00;//not connected
+buffer[14]=0x00;//not connected
+buffer[15]=0x00;//not connected
+buffer[16]=0x00;//not connected
+
+write(fd,buffer,17);
+
+}
+close(fd);//close file descriptor
+return 0;
+}
+
+
