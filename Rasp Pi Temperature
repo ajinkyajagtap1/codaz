@@ -1,0 +1,93 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <errno.h>
+
+#include <sys/ioctl.h>
+#include <linux/spi/spidev.h>
+#define LENGTH 3
+int result;
+struct spi_ioc_transfer spi;
+unsigned char data_out[LENGTH]={0x1,0x2,0x3};
+unsigned char data_in[LENGTH];
+
+int main(int argc, char **argv) {
+
+        int spi_fd,i,j;
+        double value;
+        unsigned char data[3];
+        int result;
+
+	/* Open SPI device */
+	spi_fd = open("/dev/spidev0.0",o_RDWR);
+	if(spi_fd < 0)return SPI_Error_opening_device;
+
+	/* Set SPI Mode_0 */
+	int mode=SPI_MODE_0;
+	result = ioctl(spi_fd,SPI_IOC_RD_MODE,&mode);
+	if(result== -1)return SPI_Error_read_set_mode;
+	
+	result = ioctl(spi_fd,SPI_IOC_WR_MODE,&mode);
+	if(result== -1)return SPI_Error_write_set_mode;
+
+	/* Set lsb bits per word */
+	int lsb_mode=0;
+	result = ioctl(spi_fd,SPI_IOC_RD_LSB_FIRST,&lsb_mode);
+	if(spi_fd ==-1)return SPI_Error_read_lsb_bits_word;
+
+	result = ioctl(spi_fd,SPI_IOC_WR_LSB_FIRST,&lsb_mode);
+	if(spi_fd == -1)return SPI_Error_write_bits_word;
+	
+	/* Set 8 bits per word */
+	int bits=0;
+	result = ioctl(spi_fd,SPI_IOC_RD_BITS_PER_WORD,&bits);
+	if(spi_fd ==-1)return SPI_Error_read_bits_word;
+
+	result = ioctl(spi_fd,SPI_IOC_WR_BITS_PER_WORLD,&bits);
+	if(spi_fd ==-1)return SPI_Error_write_bits_word;
+
+	/* Set 100 kHz max frequency */
+	int speed=100000;
+	result = ioctl(spi_fd,SPI_IOC_RD_MAX_SPEED_HZ,&speed);
+	if(spi_fd ==-1)return SPI_Error_read_bits_word;
+
+	result = ioctl(spi_fd,SPI_IOC_RD_MAX_SPEED_HZ,&speed);
+	if(spi_fd ==-1)return SPI_Error_read_bits_word;
+
+	memset(&spi,0,sizeof(struct spi_ioc_transfer));
+
+	/* Loop forever printing the CH0 and CH1 Voltages 	*/
+	/* Once per second.					*/
+		
+	while(1)
+	{
+	struct spi_ioc_transfer spi
+
+		{
+		spi.tx_buf =(unsigned long)&data_out;
+		spi.rx_buf =(unsigned long)&data_in;
+		spi.len	   =LENGTH;
+		spi.delay_usecs =0;
+		spi.speed_hz = 100000;
+		spi.bits_per_word =8;
+		spi.cs_change =0;	
+		};
+	result = ioctl(spi_fd,SPI_IOC_MESSAGE(1),&spi);
+	deg_C = (result * (3300.0/1024.0))-40//celsius
+	printf("%1f\n",deg_C);
+	printf("%.2f\n",deg_C);//2 digits after decimal 
+	
+	sleep(1);
+	
+	deg_f=(deg_C*9.0/5.0) +32//fahrenheit
+	printf("%1f\n",deg_f);
+	printf("%.2f\n",deg_f);//2 digits after decimal 
+	
+	}
+	close(spi.fd);
+	return 0;
+}
+ 
