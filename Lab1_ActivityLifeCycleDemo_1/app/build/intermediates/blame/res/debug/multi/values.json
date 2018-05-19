@@ -1,0 +1,202 @@
+[
+    {
+        "outputFile": "C:\\Users\\ece105\\Google Drive\\Dropbox\\ECE498_Android_16S\\Labs\\Lab1_ActivityLifeCycleDemo_1\\app\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "C:\\Users\\ece105\\Google Drive\\Dropbox\\ECE498_Android_16S\\Labs\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 54,
+                        "endOffset": 67
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 110,
+                    "endColumn": 52,
+                    "endOffset": 158
+                },
+                "from": {
+                    "file": "C:\\Users\\ece105\\Google Drive\\Dropbox\\ECE498_Android_16S\\Labs\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 72,
+                        "endColumn": 52,
+                        "endOffset": 120
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 163,
+                    "endColumn": 50,
+                    "endOffset": 209
+                },
+                "from": {
+                    "file": "C:\\Users\\ece105\\Google Drive\\Dropbox\\ECE498_Android_16S\\Labs\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 125,
+                        "endColumn": 50,
+                        "endOffset": 171
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 214,
+                    "endColumn": 66,
+                    "endOffset": 276
+                },
+                "from": {
+                    "file": "C:\\Users\\ece105\\Google Drive\\Dropbox\\ECE498_Android_16S\\Labs\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 176,
+                        "endColumn": 66,
+                        "endOffset": 238
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 281,
+                    "endColumn": 57,
+                    "endOffset": 334
+                },
+                "from": {
+                    "file": "C:\\Users\\ece105\\Google Drive\\Dropbox\\ECE498_Android_16S\\Labs\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 58,
+                        "endOffset": 71
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "F:\\ECE498\\Lab1_ActivityLifeCycleDemo_1-2016-01-21\\Lab1_ActivityLifeCycleDemo_1\\app\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "F:\\ECE498\\Lab1_ActivityLifeCycleDemo_1-2016-01-21\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 54,
+                        "endOffset": 67
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 110,
+                    "endColumn": 52,
+                    "endOffset": 158
+                },
+                "from": {
+                    "file": "F:\\ECE498\\Lab1_ActivityLifeCycleDemo_1-2016-01-21\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 72,
+                        "endColumn": 52,
+                        "endOffset": 120
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 163,
+                    "endColumn": 50,
+                    "endOffset": 209
+                },
+                "from": {
+                    "file": "F:\\ECE498\\Lab1_ActivityLifeCycleDemo_1-2016-01-21\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 125,
+                        "endColumn": 50,
+                        "endOffset": 171
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 214,
+                    "endColumn": 66,
+                    "endOffset": 276
+                },
+                "from": {
+                    "file": "F:\\ECE498\\Lab1_ActivityLifeCycleDemo_1-2016-01-21\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 176,
+                        "endColumn": 66,
+                        "endOffset": 238
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 281,
+                    "endColumn": 57,
+                    "endOffset": 334
+                },
+                "from": {
+                    "file": "F:\\ECE498\\Lab1_ActivityLifeCycleDemo_1-2016-01-21\\Lab1_ActivityLifeCycleDemo_1\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 58,
+                        "endOffset": 71
+                    }
+                }
+            }
+        ]
+    }
+]
