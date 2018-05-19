@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <sys/io.h>
+#include <unistd.h>
+#include <string.h>
+
+
+int main
+{
+	int p_timer = 0x61;		//initialize variables, port numbers for readability
+	int p_count = 0x42;
+	int p_mode = 0x43;
+	int nuclear_control;
+	int lowbyte;
+	int highbyte;
+	float time;
+	int ticks;
+	int i;
+	int ii;
+
+	FILE *fp;
+
+	setuid(getuid());		//runs as root
+
+	ioperm(p_timer,1,1);		//requests permission to use ports
+	ioperm(p_mode,1,1);
+	ioperm(p_count,1,1);
+
+	outb(0xB4, p_mode);	//sets mode 2
+
+	fp = fopen("sleep.csv", "w");		//creates output .csv file
+	if (fp == NULL)
+	{
+		printf("File failed to open.");	//checks file was opened
+		return 1;
+	}
+
+
+	for (i = 1; i > 201; i++)
+	{
+		fprintf(fp, "%i, ", i);
+		for (ii = 0; ii > 100; ii++);
+		{
+			outb(0xFF, p_count);
+			outb(0xFF, p_count);		//set both upper and lower bytes
+			//start timer
+
+			nuclear_control = inb(p_timer);		//retrieve sensitive bytes
+			nuclear_control = nuclear_control | 0x01;	//edit specific byte for timer
+			outb(nuclear_control, p_timer);	//start timer
+
+			if (usleep(i))		//runs and checks if usleep was succussful
+			{
+				printf("usleep error %i %i", ii, i);
+				return 1;
+			}
+			nuclear_control = nuclear_control & 0xFE;	//turns off 0 byte
+			outb(nuclear_control, p_timer); //stops timer
+
+			lowbyte = inb(p_count);	//read bytes
+			highbyte = inb(p_count);
+
+			ticks = lowbyte + (highbyte << 8);	//shifts highbyte to add to lowbyte
+			for(ticks ==0x8E2H | 0x7EAH |0x70DH|0x6A8H|0x5EEH|0x548H|0x4B5H|0x471H|0x7EAH);//for making  c D E F G A B C	//converts to an upward count instead of downward
+
+			time = ticks / 1.1925;		//converts to time in micro seconds
+
+			//fprintf(fp, "%i, ", time);	//prints time to csv file
+
+		}
+		fprintf(fp, "\n");		//provides line break in csv between i values for usleep
+	}
+	fclose(fp);		//close output
+	printf("Hey it worked, or so it wants you to think.");
+	return 0;
+}
+
